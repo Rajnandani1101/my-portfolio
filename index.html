@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rajnandani Mahajan | Aspiring Software Developer</title>
+  <meta name="description" content="Portfolio of Rajnandani Mahajan, a Computer Science Engineering student at Indore Institute of Science and Technology working with Java and Python.">
+  <meta name="theme-color" content="#0a0e17">
+  <style>
+:root {
+  --bg: #0a0e17;
+  --bg-raised: #111827;
+  --line: #1f2937;
+  --text: #f1f5f9;
+  --muted: #9aa4b5;
+  --accent: #8fc8ff;
+  --accent-ink: #06121f;
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --radius: 10px;
+  --header-h: 4rem;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--header-h) + 1rem); -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--bg); color: var(--muted); font-family: var(--font); font-size: 1.0625rem; line-height: 1.7; overflow-x: hidden; }
+h1, h2, h3 { color: var(--text); line-height: 1.15; margin: 0; }
+p { margin: 0 0 1rem; max-width: 62ch; }
+ul, dl { margin: 0; padding: 0; }
+li { list-style: none; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--text); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(100% - 2.5rem, 68rem); margin-inline: auto; }
+.narrow { width: min(100% - 2.5rem, 46rem); }
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(10, 14, 23, 0.92); border-bottom: 1px solid var(--line); }
+.header-inner { min-height: var(--header-h); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0 1rem; }
+.brand { color: var(--text); font-weight: 700; text-decoration: none; letter-spacing: 0.01em; }
+.nav-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.nav-button { color: var(--text); border: 1px solid var(--line); border-radius: var(--radius); padding: 0.55rem 1rem; min-height: 44px; display: inline-flex; align-items: center; cursor: pointer; }
+.nav-toggle:focus-visible + .nav-button { outline: 3px solid var(--accent); outline-offset: 3px; }
+.site-nav { display: none; flex-basis: 100%; padding-bottom: 1rem; }
+.nav-toggle:checked ~ .site-nav { display: block; }
+.site-nav a { display: block; padding: 0.7rem 0; min-height: 44px; color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+.site-nav a:hover { color: var(--accent); }
+@media (min-width: 62rem) {
+  .nav-button { display: none; }
+  .site-nav { display: block; flex-basis: auto; padding: 0; }
+  .site-nav ul { display: flex; gap: 1.4rem; }
+  .site-nav a { padding: 0.5rem 0; border-bottom: 0; font-size: 0.95rem; }
+}
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0.75rem 1.5rem; border-radius: var(--radius); border: 1px solid var(--accent); font-weight: 600; text-decoration: none; transition: background-color 0.2s, color 0.2s; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--text); border-color: var(--text); color: var(--accent-ink); }
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.hero { padding: 4rem 0 4.5rem; min-height: calc(100svh - var(--header-h)); display: flex; align-items: center; }
+.hello { color: var(--accent); font-size: 1.25rem; margin-bottom: 0.5rem; }
+.hero h1 { font-size: clamp(2.5rem, 9vw, 5.5rem); font-weight: 800; letter-spacing: -0.03em; overflow-wrap: break-word; }
+.role { color: var(--text); font-size: clamp(1.2rem, 3.5vw, 1.75rem); margin: 1rem 0 0.5rem; }
+.tagline { font-size: 1.15rem; max-width: 34ch; margin-bottom: 2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.hero-facts { display: grid; gap: 1rem; margin-top: 3rem; max-width: 34rem; }
+.hero-facts div { border-left: 2px solid var(--accent); padding-left: 1rem; }
+.hero-facts dt { color: var(--muted); font-size: 0.95rem; }
+.hero-facts dd { color: var(--text); font-size: 1.2rem; font-weight: 600; margin: 0; }
+@media (min-width: 40rem) { .hero-facts { grid-template-columns: 1fr 1fr; } }
+.section { padding: 4rem 0; border-top: 1px solid var(--line); }
+.section h2 { font-size: clamp(1.75rem, 5vw, 2.5rem); margin-bottom: 1.75rem; }
+.section h3 { font-size: 1.15rem; }
+.lead { color: var(--text); font-size: 1.35rem; }
+.skill-grid { display: grid; gap: 2rem; }
+.skill-group { border-left: 1px solid var(--line); padding-left: 1.25rem; }
+.skill-group h3 { margin-bottom: 0.9rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tags li { background: var(--bg-raised); border: 1px solid var(--line); color: var(--text); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.95rem; }
+@media (min-width: 48rem) { .skill-grid { grid-template-columns: 1fr 1fr; } }
+.project { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 4vw, 2.25rem); max-width: 48rem; }
+.project h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.project strong, .entry strong { color: var(--text); }
+.placeholder { font-style: italic; }
+.project p:last-child { margin-bottom: 0; }
+.entry { padding: 0 0 1.5rem 1.25rem; margin-bottom: 1.5rem; border-left: 2px solid var(--line); }
+.entry:last-child { margin-bottom: 0; padding-bottom: 0; }
+.entry h3 { margin-bottom: 0.4rem; }
+.entry p { margin-bottom: 0.4rem; }
+.meta { color: var(--accent); }
+.plain-list li { position: relative; padding: 0.6rem 0 0.6rem 1.5rem; border-bottom: 1px solid var(--line); }
+.plain-list li::before { content: ""; position: absolute; left: 0; top: 1.3rem; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent); }
+.contact-list { margin: 1.5rem 0; display: grid; gap: 0.5rem; }
+.contact-list span { color: var(--text); font-weight: 600; margin-right: 0.5rem; }
+.contact-list a { overflow-wrap: anywhere; }
+.social-title { margin: 2.5rem 0 0.75rem; }
+.social-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.social-list a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.4rem 1.1rem; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; transition: border-color 0.2s; }
+.social-list a:hover { border-color: var(--accent); }
+.site-footer { border-top: 1px solid var(--line); padding: 1.75rem 0; font-size: 0.95rem; }
+.footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; }
+.footer-inner p { margin: 0; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body id="top">
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">Rajnandani Mahajan</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="nav-button" aria-hidden="true">Menu</label>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <p class="hello">Hello, I’m</p>
+        <h1 id="hero-title">Rajnandani Mahajan.</h1>
+        <p class="role">Aspiring Software Developer</p>
+        <p class="tagline">Driven by curiosity. Defined by code. Inspired by innovation.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
+          <a class="btn btn-ghost" href="#contact">Contact Me</a>
+        </div>
+        <dl class="hero-facts">
+          <div>
+            <dt>Development</dt>
+            <dd>Java · Python</dd>
+          </div>
+          <div>
+            <dt>Projects</dt>
+            <dd>Ideas into solutions</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap narrow">
+        <h2 id="about-title">About me</h2>
+        <p>I’m a Computer Science Engineering student at Indore Institute of Science and Technology, passionate about software development, emerging technologies, and innovative problem-solving.</p>
+        <p>With a growing foundation in Java, Python, and core computer science concepts, I aim to transform ideas into practical digital solutions. I’m continuously refining my technical skills, exploring new possibilities, and seeking opportunities to create meaningful impact through technology.</p>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <h2 id="skills-title">Skills</h2>
+        <div class="skill-grid">
+          <div class="skill-group">
+            <h3>Programming languages</h3>
+            <ul class="tags">
+              <li>Java</li>
+              <li>Python</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Core computer science</h3>
+            <ul class="tags">
+              <li>Object-Oriented Programming</li>
+              <li>Data Structures and Algorithms</li>
+              <li>Problem-Solving</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Professional skills</h3>
+            <ul class="tags">
+              <li>Critical Thinking</li>
+              <li>Team Collaboration</li>
+              <li>Communication</li>
+              <li>Adaptability</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <ul class="tags">
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <h2 id="projects-title">Projects</h2>
+        <article class="project">
+          <h3>Digital Queue Management System</h3>
+          <p>A technology-driven project designed to streamline queue management, improve workflow efficiency, and reduce waiting-time challenges.</p>
+          <p><strong>Key focus:</strong> practical problem-solving, system design, and user convenience.</p>
+          <p class="placeholder"><strong>Technologies:</strong> to be added.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="wrap narrow">
+        <h2 id="education-title">Education</h2>
+        <article class="entry">
+          <h3>Bachelor of Technology (B.Tech), Computer Science Engineering</h3>
+          <p>Indore Institute of Science and Technology</p>
+          <p class="meta">2024 – 2028 | Expected graduation: 2028</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="certifications" aria-labelledby="cert-title">
+      <div class="wrap narrow">
+        <h2 id="cert-title">Certifications</h2>
+        <article class="entry">
+          <h3>Java Programming, NPTEL</h3>
+          <p class="meta">Achievement: Elite Certificate</p>
+          <p>Demonstrates structured learning in Java programming and related concepts.</p>
+        </article>
+        <article class="entry">
+          <h3>Python Programming, NPTEL</h3>
+          <p class="meta">Achievement: NPTEL Certificate</p>
+          <p>Reflects foundational learning in Python programming and computational problem-solving.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="achievements" aria-labelledby="ach-title">
+      <div class="wrap narrow">
+        <h2 id="ach-title">Achievements</h2>
+        <ul class="plain-list">
+          <li>Earned an NPTEL Elite Certificate in Java.</li>
+          <li>Completed an NPTEL certification in Python.</li>
+          <li>Developed academic project experience through practical problem-solving.</li>
+          <li>Continuously expanding technical knowledge and professional communication skills.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="resume" aria-labelledby="resume-title">
+      <div class="wrap narrow">
+        <h2 id="resume-title">Resume</h2>
+        <p>Explore my academic background, technical skills, certifications, and projects in one concise document.</p>
+        <a class="btn btn-primary" href="Rajnandani-Mahajan-Resume.pdf" download>Download My Resume</a>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap narrow">
+        <h2 id="contact-title">Contact</h2>
+        <p class="lead">Let’s connect and create something impactful.</p>
+        <p>I’m open to internship opportunities, technical collaborations, and projects that challenge me to learn and grow.</p>
+        <ul class="contact-list">
+          <li><span>Email</span> <a href="mailto:rajnandanimahajan66711@gmail.com">rajnandanimahajan66711@gmail.com</a></li>
+          <li><span>Location</span> Indore, Madhya Pradesh, India</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:rajnandanimahajan66711@gmail.com">Get In Touch</a>
+
+        <h3 class="social-title">Find me online</h3>
+        <ul class="social-list">
+          <li><a href="https://github.com/Rajnandani1101" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/rajnandani-mahajan-a02aaa332/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:rajnandanimahajan66711@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Rajnandani Mahajan</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
